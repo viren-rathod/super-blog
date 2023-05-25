@@ -22,7 +22,6 @@ public class PostController {
         this.postService = postService;
     }
 
-    //Create blog post api
     @PostMapping
     public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto){
         return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
@@ -53,6 +52,12 @@ public class PostController {
     public ResponseEntity<String> deletePost(@PathVariable(name = "id") Long id){
         postService.deletePostById(id);
         return new ResponseEntity<>("Post deleted successfully.", HttpStatus.OK);
+    }
+
+    @GetMapping("/posts/category/{id}")
+    public ResponseEntity<List<PostDto>> getPostsByCategory(@PathVariable("id") Long categoryId){
+        List<PostDto> postDtos = postService.getPostsByCategory(categoryId);
+        return ResponseEntity.ok(postDtos);
     }
 
 }
