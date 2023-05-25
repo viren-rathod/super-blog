@@ -28,14 +28,16 @@ public class PostServiceImpl implements PostService {
     private ModelMapper mapper;
 
 
-    public PostServiceImpl(PostRepository postRepository,ModelMapper mapper) {
+    public PostServiceImpl(PostRepository postRepository,CategoryRepository categoryRepository,ModelMapper mapper) {
         this.postRepository = postRepository;
+        this.categoryRepository = categoryRepository;
         this.mapper = mapper;
     }
 
     @Override
     public PostDto createPost(PostDto postDto) {
         Post post = convertToModel(postDto);
+        System.out.println();
         Post newPost = postRepository.save(post);
         return convertToDto(newPost);
     }

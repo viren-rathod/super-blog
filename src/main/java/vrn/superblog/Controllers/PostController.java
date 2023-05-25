@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import vrn.superblog.DTOs.PostDto;
 import vrn.superblog.DTOs.PostResponse;
-import vrn.superblog.Models.Post;
 import vrn.superblog.Services.PostService;
 import org.springframework.web.bind.annotation.*;
 import vrn.superblog.Utils.AppConstants;
@@ -23,7 +22,7 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto){
+    public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto){
         return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
     }
 
@@ -54,10 +53,9 @@ public class PostController {
         return new ResponseEntity<>("Post deleted successfully.", HttpStatus.OK);
     }
 
-    @GetMapping("/posts/category/{id}")
+    @GetMapping("/category/{id}")
     public ResponseEntity<List<PostDto>> getPostsByCategory(@PathVariable("id") Long categoryId){
         List<PostDto> postDtos = postService.getPostsByCategory(categoryId);
         return ResponseEntity.ok(postDtos);
     }
-
 }
