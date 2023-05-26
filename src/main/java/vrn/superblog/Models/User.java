@@ -1,6 +1,7 @@
 package vrn.superblog.Models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class User {
     private String username;
     @Column(nullable = false, unique = true)
     private String email;
+    @NotNull(message = "Password can not be null or blank!")
     @Column(nullable = false)
     private String password;
 
