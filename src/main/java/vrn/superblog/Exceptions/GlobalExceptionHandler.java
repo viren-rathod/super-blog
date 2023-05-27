@@ -53,9 +53,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                     WebRequest webRequest){
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
                 webRequest.getDescription(false));
-        log.info("working fine..");
-        log.info(HttpStatus.UNAUTHORIZED.toString());
-
+//        log.info("working fine..");
+//        log.info(HttpStatus.UNAUTHORIZED.toString());
         return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
     }
 
