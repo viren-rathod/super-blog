@@ -1,5 +1,7 @@
 package vrn.superblog.Config;
 
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,6 +24,11 @@ import vrn.superblog.Security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableMethodSecurity()
+@SecurityScheme(
+        name = "Bear Authentication",
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer"
+)
 public class SecurityConfig {
     private UserDetailsService userDetailsService;
 

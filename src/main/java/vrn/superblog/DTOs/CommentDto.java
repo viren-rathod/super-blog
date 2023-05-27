@@ -1,11 +1,13 @@
 package vrn.superblog.DTOs;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+@Schema(description = "Comment Dto Model")
 @Data
 public class CommentDto {
     private long id;

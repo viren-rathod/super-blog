@@ -1,5 +1,6 @@
 package vrn.superblog.DTOs;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.Data;
 
 import java.util.Set;
 
+@Schema(description = "Post Dto Model")
 @Data
 public class PostDto {
     private long id;

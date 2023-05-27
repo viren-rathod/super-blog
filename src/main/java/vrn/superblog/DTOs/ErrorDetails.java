@@ -1,7 +1,10 @@
 package vrn.superblog.DTOs;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.Date;
 
+@Schema(description = "Error Information")
 public class ErrorDetails {
     private Date timestamp;
     private String message;

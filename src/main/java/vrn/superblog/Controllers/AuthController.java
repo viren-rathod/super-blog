@@ -1,5 +1,6 @@
 package vrn.superblog.Controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import vrn.superblog.DTOs.LoginDto;
 import vrn.superblog.DTOs.RegisterDto;
 import vrn.superblog.Services.AuthService;
 
+@Tag( name = "CRUD REST APIs for Authentication" )
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

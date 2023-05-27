@@ -1,5 +1,6 @@
 package vrn.superblog.Controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +8,7 @@ import vrn.superblog.DTOs.CategoryDto;
 import vrn.superblog.Services.CategoryService;
 
 import java.util.List;
+@Tag( name = "CRUD REST APIs for Category Resource" )
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
