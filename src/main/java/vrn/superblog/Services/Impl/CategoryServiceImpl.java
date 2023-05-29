@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class CategoryServiceImpl implements CategoryService {
     private CategoryRepository categoryRepository;
     private ModelMapper modelMapper;
+    private static final String CATEGORY = "Category";
 
     public CategoryServiceImpl(CategoryRepository categoryRepository, ModelMapper modelMapper) {
         this.categoryRepository = categoryRepository;
@@ -31,21 +32,21 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto getCategory(Long categoryId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("Category", "id", categoryId));
+                .orElseThrow(() -> new ResourceNotFoundException(CATEGORY, "id", categoryId));
         return modelMapper.map(category, CategoryDto.class);
     }
 
     @Override
     public List<CategoryDto> getAllCategories() {
         List<Category> categories = categoryRepository.findAll();
-        return categories.stream().map((category) -> modelMapper.map(category, CategoryDto.class))
-                .collect(Collectors.toList());
+        return categories.stream().map(category -> modelMapper.map(category, CategoryDto.class)).toList();
+//                .collect(Collectors.toList());
     }
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto, Long categoryId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("Category", "id", categoryId));
+                .orElseThrow(() -> new ResourceNotFoundException(CATEGORY, "id", categoryId));
         category.setName(categoryDto.getName());
         category.setDescription(categoryDto.getDescription());
         category.setId(categoryId);
@@ -56,7 +57,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Long categoryId) {
         Category category = categoryRepository.findById(categoryId)
-                .orElseThrow(() -> new ResourceNotFoundException("Category", "id", categoryId));
+                .orElseThrow(() -> new ResourceNotFoundException(CATEGORY, "id", categoryId));
         categoryRepository.delete(category);
     }
 }

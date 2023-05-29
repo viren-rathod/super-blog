@@ -46,17 +46,16 @@ public class AuthServiceImpl implements AuthService {
                 loginDto.getUsernameOrEmail(), loginDto.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtTokenProvider.generateToken(authentication);
-        return token;
+        return jwtTokenProvider.generateToken(authentication);
     }
 
     @Override
     public String register(RegisterDto registerDto) {
-        if(userRepository.existsByUsername(registerDto.getUsername())){
+        if(Boolean.TRUE.equals(userRepository.existsByUsername(registerDto.getUsername()))){
             throw new BlogAPIException(HttpStatus.BAD_REQUEST, "Username already exists!");
         }
 
-        if(userRepository.existsByEmail(registerDto.getEmail())){
+        if(Boolean.TRUE.equals(userRepository.existsByEmail(registerDto.getEmail()))){
             throw new BlogAPIException(HttpStatus.BAD_REQUEST, "E - mail already exists!");
         }
 

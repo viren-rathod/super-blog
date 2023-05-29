@@ -12,7 +12,7 @@ import vrn.superblog.Services.CommentService;
 
 import java.util.List;
 
-@Tag( name = "CRUD REST APIs for Comment Resource" )
+@Tag( name = "REST APIs for Comment Resource" )
 @RestController
 @RequestMapping("/api/posts")
 public class CommentController {

@@ -1,13 +1,15 @@
 package vrn.superblog.Utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@Slf4j
 public class PasswordGeneratorEncoder {
     public static void main(String[] args) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        System.out.println(passwordEncoder.encode("admin"));
-        System.out.println(passwordEncoder.encode("viren"));
-        System.out.println(passwordEncoder.encode("rohit"));
+        log.info(passwordEncoder.encode("admin"));
+        log.info(passwordEncoder.encode("viren"));
+        log.info(passwordEncoder.encode("rohit"));
     }
 }

@@ -8,7 +8,7 @@ import vrn.superblog.DTOs.CategoryDto;
 import vrn.superblog.Services.CategoryService;
 
 import java.util.List;
-@Tag( name = "CRUD REST APIs for Category Resource" )
+@Tag( name = "REST APIs for Category Resource" )
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {

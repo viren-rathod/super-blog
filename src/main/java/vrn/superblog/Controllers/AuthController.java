@@ -12,7 +12,7 @@ import vrn.superblog.DTOs.LoginDto;
 import vrn.superblog.DTOs.RegisterDto;
 import vrn.superblog.Services.AuthService;
 
-@Tag( name = "CRUD REST APIs for Authentication" )
+@Tag( name = "REST APIs for Authentication" )
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

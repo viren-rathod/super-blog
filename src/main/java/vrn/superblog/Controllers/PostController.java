@@ -16,7 +16,7 @@ import vrn.superblog.Utils.AppConstants;
 
 import java.util.List;
 
-@Tag( name = "CRUD REST APIs for Post Resource" )
+@Tag( name = "REST APIs for Post Resource" )
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
